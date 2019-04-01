@@ -21,4 +21,12 @@ class Game {
     }
     return result;
   }
+
+  List<Integer> score() {
+    ArrayList<Integer> result = new ArrayList<>();
+    for (Player player : players) {
+      result.add(player.getScore());
+    }
+    return result;
+  }
 }
