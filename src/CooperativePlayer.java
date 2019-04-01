@@ -1,20 +1,13 @@
 class CooperativePlayer implements Player {
+  private Integer score;
 
-  private int score;
-
-  CooperativePlayer() {
-    this.score = 0;
+  @Override
+  public MoveType move() {
+    return MoveType.COOPERATE;
   }
 
   @Override
-  public Integer move() {
-    score += 2;
-    return 2;
+  public void setScore(Integer score) {
+    this.score = score;
   }
-
-  @Override
-  public Integer getScore() {
-    return score;
-  }
-
 }

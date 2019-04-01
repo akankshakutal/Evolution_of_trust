@@ -20,7 +20,7 @@ class GameTest {
     game.addPlayer(john);
     game.addPlayer(roy);
 
-    assertEquals(List.of(2,2), game.move());
+    assertEquals(List.of(2, 2), game.move());
   }
 
   @Test
@@ -30,8 +30,7 @@ class GameTest {
     game.addPlayer(john);
     game.addPlayer(roy);
     game.move();
-    game.move();
 
-    assertEquals(List.of(4,4),game.score());
+    assertEquals(List.of(4, 4), game.move());
   }
 }

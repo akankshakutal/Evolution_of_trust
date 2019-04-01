@@ -1,4 +1,5 @@
 public interface Player {
-  Integer move();
-  Integer getScore();
+  MoveType move();
+
+  void setScore(Integer integer);
 }
