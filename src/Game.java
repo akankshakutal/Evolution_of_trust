@@ -2,17 +2,13 @@ import java.util.*;
 
 class Game {
   private List<Player> players;
-  private Map<List<MoveType>, List<Integer>> scoreMatrix;
   private List<Integer> score;
+  private Machine machine;
 
   Game() {
     this.players = new ArrayList<>();
-    this.scoreMatrix = new HashMap<>();
     this.score = new ArrayList<>(Arrays.asList(0, 0));
-    scoreMatrix.put(Arrays.asList(MoveType.COOPERATE, MoveType.COOPERATE), Arrays.asList(2, 2));
-    scoreMatrix.put(Arrays.asList(MoveType.COOPERATE, MoveType.CHEAT), Arrays.asList(-1, 3));
-    scoreMatrix.put(Arrays.asList(MoveType.CHEAT, MoveType.CHEAT), Arrays.asList(0, 0));
-    scoreMatrix.put(Arrays.asList(MoveType.CHEAT, MoveType.COOPERATE), Arrays.asList(3,-1));
+    this.machine = new Machine();
   }
 
   void addPlayer(Player player) throws PlayerLimitExceededException {
@@ -22,11 +18,11 @@ class Game {
   }
 
   List<Integer> move() {
-    ArrayList<MoveType> result = new ArrayList<>();
+    ArrayList<MoveType> moves = new ArrayList<>();
     for (Player player : players) {
-      result.add(player.move());
+      moves.add(player.move());
     }
-    List<Integer> latestScore = this.scoreMatrix.get(result);
+    List<Integer> latestScore = this.machine.putCoins(moves);
     this.setPlayerLatestScore(latestScore);
     this.updateScore(latestScore);
 
