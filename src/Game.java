@@ -10,6 +10,9 @@ class Game {
     this.scoreMatrix = new HashMap<>();
     this.score = new ArrayList<>(Arrays.asList(0, 0));
     scoreMatrix.put(Arrays.asList(MoveType.COOPERATE, MoveType.COOPERATE), Arrays.asList(2, 2));
+    scoreMatrix.put(Arrays.asList(MoveType.COOPERATE, MoveType.CHEAT), Arrays.asList(-1, 3));
+    scoreMatrix.put(Arrays.asList(MoveType.CHEAT, MoveType.CHEAT), Arrays.asList(0, 0));
+    scoreMatrix.put(Arrays.asList(MoveType.CHEAT, MoveType.COOPERATE), Arrays.asList(3,-1));
   }
 
   void addPlayer(Player player) throws PlayerLimitExceededException {

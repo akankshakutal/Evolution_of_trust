@@ -33,4 +33,25 @@ class GameTest {
 
     assertEquals(List.of(4, 4), game.move());
   }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreForCheaterAndCooperativePlayer() throws PlayerLimitExceededException {
+    Player john = new CooperativePlayer();
+    Player roy = new Cheater();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+
+    assertEquals(List.of(-1,3), game.move());
+  }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreForCheaterAndCooperativePlayerAfterTwoRounds() throws PlayerLimitExceededException {
+    Player john = new CooperativePlayer();
+    Player roy = new Cheater();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+    game.move();
+
+    assertEquals(List.of(-2,6), game.move());
+  }
 }

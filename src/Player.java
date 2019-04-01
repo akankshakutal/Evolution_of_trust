@@ -1,5 +1,10 @@
-public interface Player {
-  MoveType move();
+abstract class Player {
+  private Integer score;
 
-  void setScore(Integer integer);
+  abstract MoveType move();
+
+  void setScore(Integer score){
+    this.score = score;
+  }
+
 }
