@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Machine {
   private Map<List<MoveType>, List<Integer>> scoreMatrix;

@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class Game {
   private List<Player> players;
@@ -19,10 +21,13 @@ class Game {
 
   List<Integer> move() {
     ArrayList<MoveType> moves = new ArrayList<>();
-    for (Player player : players) {
-      moves.add(player.move());
-    }
+    Player player1 = this.players.get(0);
+    Player player2 = this.players.get(1);
+
+    moves.add(player1.move());
+    moves.add(player2.move());
     List<Integer> latestScore = this.machine.putCoins(moves);
+
     this.setPlayerLatestScore(latestScore);
     this.updateScore(latestScore);
 

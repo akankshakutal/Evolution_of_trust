@@ -1,9 +1,9 @@
 abstract class Player {
-  private Integer score;
+  Integer score;
 
   abstract MoveType move();
 
-  void setScore(Integer score){
+  void setScore(Integer score) {
     this.score = score;
   }
 

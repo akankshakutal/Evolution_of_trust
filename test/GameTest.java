@@ -54,4 +54,24 @@ class GameTest {
 
     assertEquals(List.of(-2,6), game.move());
   }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreOfCopyCatAndCooperativePlayer() throws PlayerLimitExceededException {
+    Player john = new CooperativePlayer();
+    Player roy = new CopyCat();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+
+    assertEquals(List.of(2,2), game.move());
+  }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreOfCopyCatAndCheaterPlayer() throws PlayerLimitExceededException {
+    Player john = new Cheater();
+    Player roy = new CopyCat();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+
+    assertEquals(List.of(3,-1), game.move());
+  }
 }
