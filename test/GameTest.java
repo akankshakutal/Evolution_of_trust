@@ -74,4 +74,35 @@ class GameTest {
 
     assertEquals(List.of(3,-1), game.move());
   }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreOfDetectiveAndCheaterPlayer() throws PlayerLimitExceededException {
+    Player john = new Detective();
+    Player roy = new CooperativePlayer();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+    game.move();
+
+    assertEquals(List.of(5,1), game.move());
+  }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreOfDetectiveAndCooperativePlayer() throws PlayerLimitExceededException {
+    Player john = new Detective();
+    Player roy = new Cheater();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+
+    assertEquals(List.of(-1,3), game.move());
+  }
+
+  @Test
+  void shouldReturnObjectOfTotalScoreOfCopyCatAndDetectivePlayer() throws PlayerLimitExceededException {
+    Player john = new Detective();
+    Player roy = new CopyCat();
+    game.addPlayer(john);
+    game.addPlayer(roy);
+
+    assertEquals(List.of(2,2), game.move());
+  }
 }
